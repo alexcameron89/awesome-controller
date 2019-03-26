@@ -1,0 +1,7 @@
+<% @posts.each do |post| %>
+  <tr class="post">
+    <td><%= post.title %></td>
+    <td><%= post.content %></td>
+    <td><%= link_to 'Show', post %></td>
+  </tr>
+<% end %>

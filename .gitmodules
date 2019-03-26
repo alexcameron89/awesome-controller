@@ -1,0 +1,9 @@
+[submodule "dependencies/puma"]
+	path = dependencies/puma
+	url = git@github.com:puma/puma.git
+[submodule "dependencies/rack"]
+	path = dependencies/rack
+	url = git@github.com:rack/rack.git
+[submodule "dependencies/rails"]
+	path = dependencies/rails
+	url = git@github.com:rails/rails.git
