@@ -1,4 +1,10 @@
 PATH
+  remote: ../puma
+  specs:
+    puma (3.12.1)
+      nio4r (~> 2.0)
+
+PATH
   remote: ../rails
   specs:
     actioncable (6.0.0.beta3)
@@ -138,7 +144,6 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.10)
     public_suffix (3.0.3)
-    puma (3.12.1)
     rack (2.0.6)
     rack-proxy (0.6.5)
       rack
@@ -222,7 +227,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pry-byebug
-  puma (~> 3.11)
+  puma!
   rails!
   sass-rails (~> 5.0)
   selenium-webdriver
