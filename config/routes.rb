@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :posts
 
   namespace :api do
+    resources :other_posts
     resources :posts
   end
 end
