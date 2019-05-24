@@ -22,5 +22,9 @@ Bundler.require(*Rails.groups)
 module Journey
   class Application < Rails::Application
     config.load_defaults 6.0
+
+    config.generators do |g|
+      g.test_framework :rspec
+    end
   end
 end
