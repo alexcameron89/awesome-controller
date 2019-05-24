@@ -1,7 +1,4 @@
 class Api::PostsController
-  REQUIRED_PARAM = :post
-  PERMITTED_PARAMS = [:title, :content]
-
   def index
     render json: Post.all
   end
@@ -17,9 +14,29 @@ class Api::PostsController
   end
 
   def post_params
-    request.params
-      .fetch(REQUIRED_PARAM)
-      .select { |k,v| PERMITTED_PARAMS.include?(k.to_sym) }
+    params.require(:post).permit(:title, :content)
+  end
+
+  #================================================================================
+
+  def params
+    Params.new(request.params)
+  end
+
+  class Params
+    attr_reader :params
+
+    def initialize(params)
+      @params = params
+    end
+
+    def require(attribute)
+      Params.new(params.fetch(attribute))
+    end
+
+    def permit(*attributes)
+      params.select { |k,v| attributes.include?(k.to_sym) }
+    end
   end
 
   # This method creates a response object on the controller before calling
