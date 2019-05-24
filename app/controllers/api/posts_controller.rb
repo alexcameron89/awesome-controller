@@ -6,10 +6,11 @@ class Api::PostsController
     render json: Post.all
   end
 
+  # curl -X POST -H "Content-Type: application/json" 0.0.0.0:3000/api/posts -d '{"post":{"title":"Hello"}}'
   def create
     @post = Post.new(post_params)
     if @post.save
-      render json: @post
+      render json: @post, status: 201
     else
       render json: @post.errors, status: 422
     end
