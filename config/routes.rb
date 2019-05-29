@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :comments
   root to: "posts#index"
-  resources :posts
+  resources :posts, only: [:index, :create, :show]
+  resources :other_posts, only: [:index, :create, :show]
 
   namespace :api do
     resources :other_posts
