@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
   def index
+    puts "#" * 90
+    puts caller.reverse
+    puts "#" * 90
     @posts = Post.all
   end
 
