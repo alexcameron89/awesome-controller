@@ -14,7 +14,8 @@ class Api::PostsController < ActionController::API
   end
 
   def show
-    render json: Post.find(params[:id])
+    #render json: Post.find(params[:id])
+    render json: {"id":1,"title":"Hello","content":nil,"created_at":"2019-05-19T19:51:27.175Z","updated_at":"2019-05-19T19:51:27.175Z"}
   end
 
   private
