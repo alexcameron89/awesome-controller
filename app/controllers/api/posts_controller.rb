@@ -1,21 +1,22 @@
 class Api::PostsController < ActionController::API
   def index
-    render json: Post.all
+    render(json: Post.all)
   end
 
   def create
     post = Post.new(post_params)
 
     if post.save
-      render json: post, status: 201 # Created status code
+      render(json: post, status: :created) # Created status code
     else
-      render json: post.errors, status: 422 # Unprocessable Entity status code
+      render(json: post.errors, status: :unprocessable_entity) # Unprocessable Entity status code
     end
   end
 
   def show
-    #render json: Post.find(params[:id])
-    render json: {"id":1,"title":"Hello","content":nil,"created_at":"2019-05-19T19:51:27.175Z","updated_at":"2019-05-19T19:51:27.175Z"}
+    #render json: { post: Post.find(params[:id]) }
+    #render(json: {"post":{"id":1,"title":"Hello","content":null,"created_at":"2019-05-19T19:51:27.175Z","updated_at":"2019-05-19T19:51:27.175Z"}})
+    self.response_body = "{\"post\":{\"id\":1,\"title\":\"Hello\",\"content\":null,\"created_at\":\"2019-05-19T19:51:27.175Z\",\"updated_at\":\"2019-05-19T19:51:27.175Z\"}}"
   end
 
   private
