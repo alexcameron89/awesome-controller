@@ -19,6 +19,8 @@ end
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+ActiveSupport::JSON::Encoding.time_precision = 0
+
 module Journey
   class Application < Rails::Application
     config.load_defaults 6.0

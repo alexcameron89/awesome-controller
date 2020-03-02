@@ -15,6 +15,20 @@ RSpec.describe "Posts API (Custom Controller)", type: :request do
     end
   end
 
+  describe "GET /post/:id" do
+    let!(:post) { FactoryBot.create(:post) }
+
+    it 'returns the details of a post' do
+      get "/api/posts/#{ post.id }"
+
+      aggregate_failures do
+        expect(response).to have_http_status(200)
+        expect(response.body).to match(post.title)
+        expect(response.body).to match(post.content)
+      end
+    end
+  end
+
   describe "POST /api/posts" do
     let(:title) { "Hello again!" }
     let(:content) { "It's good to see you!" }
