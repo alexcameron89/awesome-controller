@@ -1,3 +1,4 @@
+require "active_support/time"
 # Load the Rails application.
 require_relative 'application'
 

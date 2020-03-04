@@ -17,6 +17,6 @@ gem 'webpacker'
 gem 'turbolinks'
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 4.0.0.beta4'
   gem 'factory_bot_rails'
 end
