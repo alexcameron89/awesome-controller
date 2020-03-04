@@ -1,8 +1,4 @@
 class Api::OtherPostsController < AlexController::Base
-  def index
-    render json: Post.all
-  end
-
   def show
     render json: { post: Post.find(params[:id]) }
   end
@@ -11,13 +7,13 @@ class Api::OtherPostsController < AlexController::Base
   def create
     @post = Post.new(post_params)
     if @post.save
-      render json: @post, status: 201
+      render json: { post: @post }, status: 201
     else
-      render json: @post.errors, status: 422
+      render json: { errors: @post.errors }, status: 422
     end
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :author_id)
   end
 end

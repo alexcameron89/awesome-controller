@@ -1,20 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Posts API (Rails Controller)", type: :request do
-  describe "GET /api/other_posts" do
-    let!(:post) { FactoryBot.create(:post) }
-
-    it 'returns a list of posts' do
-      get api_other_posts_path
-
-      aggregate_failures do
-        expect(response).to have_http_status(200)
-        expect(response.body).to match(post.title)
-        expect(response.body).to match(post.content)
-      end
-    end
-  end
-
   describe "GET /api/other_posts/1" do
     let!(:post) { FactoryBot.create(:post) }
 
@@ -26,6 +12,7 @@ RSpec.describe "Posts API (Rails Controller)", type: :request do
         "post" =>  {
           "id" => post.id,
           "title" => post.title,
+          "author_id" => post.author_id,
           "content" => post.content,
           "created_at" => post.created_at.iso8601,
           "updated_at" => post.updated_at.iso8601
@@ -45,17 +32,33 @@ RSpec.describe "Posts API (Rails Controller)", type: :request do
   describe "POST /api/other_posts" do
     let(:title) { "Hello again!" }
     let(:content) { "It's good to see you!" }
+    let(:author) { FactoryBot.create(:author) }
     let(:post_params) do
-      { post: { title: title, content: content } }
+      { post: { title: title, content: content, author_id: author.id  } }
     end
 
     it "returns the newly created post" do
       post "/api/other_posts", params: post_params
+      expected_post = Post.first
+
+      header_keys = ["ETag", "Cache-Control", "X-Request-Id", "X-Runtime", "Content-Length"]
+      expected_body = {
+        "post" =>  {
+          "id" => expected_post.id,
+          "title" => expected_post.title,
+          "author_id" => expected_post.author_id,
+          "content" => expected_post.content,
+          "created_at" => expected_post.created_at.iso8601,
+          "updated_at" => expected_post.updated_at.iso8601
+        }
+      }
+
+      body_details = JSON.parse(response.body)
 
       aggregate_failures do
         expect(response).to have_http_status(201)
-        expect(response.body).to match(title)
-        expect(response.body).to match(content)
+        expect(response.headers.keys).to include(*header_keys)
+        expect(body_details).to eq(expected_body)
       end
     end
   end
