@@ -45,9 +45,9 @@ RSpec.describe "Posts API (Rails Controller)", type: :request do
       expected_body = {
         "post" =>  {
           "id" => expected_post.id,
-          "title" => expected_post.title,
-          "author_id" => expected_post.author_id,
-          "content" => expected_post.content,
+          "title" => title,
+          "author_id" => author.id,
+          "content" => content,
           "created_at" => expected_post.created_at.iso8601,
           "updated_at" => expected_post.updated_at.iso8601
         }
