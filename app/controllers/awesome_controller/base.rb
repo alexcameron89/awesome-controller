@@ -1,0 +1,2 @@
+class AwesomeController::Base
+end
