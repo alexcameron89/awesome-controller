@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show]
+
   def index
     @posts = Post.all
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def new
@@ -16,12 +17,16 @@ class PostsController < ApplicationController
 
     @post.save
 
-    redirect_to @post, notice: 'Congratulations on your successful post.'
+    redirect_to other_post_path(@post.id), notice: 'Congratulations on your successful post.'
   end
 
   private
 
   def post_params
     params.require(:post).permit(:title, :content)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end
