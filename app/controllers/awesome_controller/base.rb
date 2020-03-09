@@ -1,2 +1,2 @@
-class AwesomeController::Base
+class AwesomeController::Base < AwesomeController::BasestOfBase
 end

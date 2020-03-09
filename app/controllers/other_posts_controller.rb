@@ -1,4 +1,4 @@
-class OtherPostsController < ApplicationController
+class OtherPostsController < AwesomeController::Base
   def index
     @posts = Post.all
   end
