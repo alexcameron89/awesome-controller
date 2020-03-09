@@ -1,8 +1,5 @@
 class PostsController < ApplicationController
   def index
-    puts "#" * 90
-    puts caller.reverse
-    puts "#" * 90
     @posts = Post.all
   end
 
@@ -10,12 +7,16 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def new
+    @post = Post.new
+  end
+
   def create
     @post = Post.new(post_params)
 
     @post.save
 
-    redirect_to @post, notice: 'Post was successfully created.'
+    redirect_to @post, notice: 'Congratulations on your successful post.'
   end
 
   private

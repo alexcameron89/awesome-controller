@@ -7,12 +7,16 @@ class OtherPostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def new
+    @post = Post.new
+  end
+
   def create
     @post = Post.new(post_params)
 
     @post.save
 
-    redirect_to @post, notice: 'Post was successfully created.'
+    redirect_to other_post_path(@post.id), notice: 'Congratulations on your successful post.'
   end
 
   private
