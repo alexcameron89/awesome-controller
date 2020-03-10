@@ -43,13 +43,20 @@ class AwesomeController::BasestOfBase
     new.dispatch(action_name, request, response)
   end
 
-  def dispatch(action, request, response)
-    @action = action
+  attr_reader :action_name, :request, :response
+  def dispatch(action_name, request, response)
+    @action_name = action_name
     @request = request
     @response = response
 
-    send(@action)
+    process_action(@action_name)
 
     @response.to_a
+  end
+
+  private
+
+  def process_action(action_name)
+    send(action_name)
   end
 end
