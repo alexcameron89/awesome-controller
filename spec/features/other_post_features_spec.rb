@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Creating and Viewing Posts", type: :feature do
+describe "Creating and Viewing Posts (Custom Controller)", type: :feature do
   describe "creating posts" do
     it "allows a user to create a post" do
       visit "/other_posts/new"

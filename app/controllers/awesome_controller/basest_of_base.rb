@@ -1,4 +1,5 @@
 class AwesomeController::BasestOfBase
+
   # NoMethodError:
   #  undefined method `binary_params_for?' for Api::OtherPostsController:Class
   # ./dependencies/rails/actionpack/lib/action_dispatch/http/parameters.rb:100:in `binary_params_for?'

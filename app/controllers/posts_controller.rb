@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
     @post.save
 
-    redirect_to other_post_path(@post.id), notice: 'Congratulations on your successful post.'
+    redirect_to @post, notice: 'Congratulations on your successful post.'
   end
 
   private
