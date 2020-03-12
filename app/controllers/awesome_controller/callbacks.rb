@@ -28,12 +28,10 @@ module AwesomeController
     end
 
     module ClassMethods
-      [:before, :after, :around].each do |callback|
-        #                                                                       #name    , #options
-        define_method "#{callback}_action" do |name, **options| # before_action(:set_post, only: [:show])
-          normalized_options = normalize_options(options)
-          set_callback(:process_action, callback, name, normalized_options)
-        end
+
+      def before_action(method_name, **options)
+        normalized_options = normalize_options(options)
+        set_callback(:process_action, :before, method_name, normalized_options)
       end
 
       private
@@ -49,6 +47,7 @@ module AwesomeController
           # "Is the controller's action in this `only` list?
           options[:if] = proc { |controller| only_list.map(&:to_s).include?(controller.action_name) }
         end
+
         options
       end
     end
