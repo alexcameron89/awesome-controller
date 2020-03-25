@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe "Creating and Viewing Posts (Custom Controller)", type: :feature do
   describe "creating posts" do
-    it "allows a user to create a post" do
+    pending "allows a user to create a post" do
       visit "/other_posts/new"
       within("form#post") do
         fill_in "Title", with: "Creating the world"
@@ -16,14 +16,14 @@ describe "Creating and Viewing Posts (Custom Controller)", type: :feature do
   describe "viewing posts" do
     let!(:post) { FactoryBot.create(:post) }
 
-    it "allows a user to see the posts available" do
+    pending "allows a user to see the posts available" do
       visit "/other_posts"
 
       expect(page).to have_selector ".post", count: 1
       expect(page).to have_content post.title
     end
 
-    it "allows a user to view a post" do
+    pending "allows a user to view a post" do
       visit "/other_posts/#{ post.id }"
 
       expect(page).to have_content post.title
