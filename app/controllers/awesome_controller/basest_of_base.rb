@@ -51,6 +51,7 @@ class AwesomeController::BasestOfBase
     @response = response
 
     process(@action_name)
+    @request.commit_flash
 
     @response.to_a
   end

@@ -15,5 +15,13 @@ module AwesomeController
         helper_method(:notice)
       end
     end
+
+    def redirect_to(options = {}, response_options_and_flash = {})
+      if flash_message = response_options_and_flash.delete(:notice)
+        request.flash[:notice] = flash_message
+      end
+
+      super(options, response_options_and_flash)
+    end
   end
 end
