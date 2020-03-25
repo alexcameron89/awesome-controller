@@ -7,6 +7,7 @@ class AwesomeController::Base < AwesomeController::BasestOfBase
   include ActionView::ViewPaths
   include AwesomeController::Flash
   include AwesomeController::UrlFor
+  include AwesomeController::Redirecting
 
   delegate :headers, :status=, :location=, :content_type=,
     :status, :location, :content_type, :media_type, to: "@response"

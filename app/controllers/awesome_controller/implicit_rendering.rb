@@ -16,7 +16,7 @@ module AwesomeController
     end
 
     def performed?
-      @perfomed
+      @performed
     end
 
     private

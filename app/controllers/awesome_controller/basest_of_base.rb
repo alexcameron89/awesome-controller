@@ -161,5 +161,7 @@ class AwesomeController::BasestOfBase
   def response_body=(body)
     @response.reset_body!
     @response.body = body
+
+    @performed = true
   end
 end
