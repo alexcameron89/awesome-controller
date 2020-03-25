@@ -16,11 +16,12 @@ describe "Creating and Viewing Posts (Custom Controller)", type: :feature do
   describe "viewing posts" do
     let!(:post) { FactoryBot.create(:post) }
 
-    pending "allows a user to see the posts available" do
+    it "allows a user to see the posts available" do
       visit "/other_posts"
 
       expect(page).to have_selector ".post", count: 1
       expect(page).to have_content post.title
+      expect(page).to have_link("Show")
     end
 
     pending "allows a user to view a post" do
