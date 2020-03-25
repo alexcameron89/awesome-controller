@@ -21,7 +21,7 @@ module AwesomeController
       define_callbacks :process_action
     end
 
-    def process_action(*)
+    def process(*)
       run_callbacks(:process_action) do
         super
       end

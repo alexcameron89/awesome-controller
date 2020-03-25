@@ -24,7 +24,7 @@ describe "Creating and Viewing Posts (Custom Controller)", type: :feature do
       expect(page).to have_link("Show")
     end
 
-    pending "allows a user to view a post" do
+    it "allows a user to view a post" do
       visit "/other_posts/#{ post.id }"
 
       expect(page).to have_content post.title
