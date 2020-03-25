@@ -60,4 +60,9 @@ class AwesomeController::BasestOfBase
   def process_action(action_name)
     send(action_name)
   end
+
+  def response_body=(body)
+    @response.reset_body!
+    @response.body = body
+  end
 end

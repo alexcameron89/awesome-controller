@@ -21,7 +21,6 @@ class AwesomeController::Api < AwesomeController::BasestOfBase
       @response.status = Rack::Utils.status_code(status)
     end
 
-    @response.reset_body!
-    @response.body = [json.to_json]
+    self.response_body = json.to_json
   end
 end
