@@ -26,7 +26,7 @@ module AwesomeController
       end
 
       def permit(*attributes)
-        permitted_params = @params.select { |a| a.to_sym.in?(attributes) }
+        @params.select { |a| a.to_sym.in?(attributes) }
       end
     end
 
