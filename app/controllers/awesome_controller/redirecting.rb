@@ -3,8 +3,8 @@ module AwesomeController
     extend ActiveSupport::Concern
 
     def redirect_to(options = {}, response_options = {})
-      self.status = 302
-      self.location = compute_redirect_to_location(request, options)
+      response.status = 302
+      response.location = compute_redirect_to_location(request, options)
       self.response_body = "Redirecting"
     end
 
