@@ -17,9 +17,7 @@ class AwesomeController::Api < AwesomeController::BasestOfBase
     #  This combines code from two places
     #  action_controller/metal/rendering.rb:101 , #_normalize_options for symbol to int
     #  actionpack/lib/action_controller/metal/rendering.rb:118 for setting the status
-    if status
-      @response.status = Rack::Utils.status_code(status)
-    end
+    @response.status = status if status
 
     self.response_body = json.to_json
   end
