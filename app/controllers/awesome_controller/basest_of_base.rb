@@ -104,16 +104,6 @@ class AwesomeController::BasestOfBase
     @controller_path ||= name.sub(/Controller$/, "").underscore
   end
 
-  # Performs the actual template rendering.
-  def render_to_body(options = {})
-  end
-
-  # Stolen from abstract_controller/rendering.rb
-  # Process extra options.
-  def _process_options(options) # :doc:
-    options
-  end
-
   # Failures:
   #  1) Creating and Viewing Posts (Custom Controller) creating posts allows a user to create a post
   #  Failure/Error: super
@@ -148,21 +138,18 @@ class AwesomeController::BasestOfBase
     send(action_name)
   end
 
+  def response_body=(body)
+    @response.reset_body!
+    @response.body = body
+
+    @performed = true
+  end
+
   def _normalize_args(action = nil, options = {})
     options
   end
 
   def _normalize_options(options)
     options
-  end
-
-  def _set_rendered_content_type(format) # :nodoc:
-  end
-
-  def response_body=(body)
-    @response.reset_body!
-    @response.body = body
-
-    @performed = true
   end
 end

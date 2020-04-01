@@ -31,11 +31,7 @@ module AwesomeController
       options = _normalize_args(*args, &block)
       _normalize_options(options)
       rendered_body = render_to_body(options)
-      if options[:html]
-        _set_html_content_type
-      else
-        _set_rendered_content_type rendered_format
-      end
+      response.content_type = "text/html"
       self.response_body = rendered_body
     end
 

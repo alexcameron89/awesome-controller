@@ -13,17 +13,6 @@ module AwesomeController
       response.status = status if status
       response.content_type = content_type if content_type
       headers["Location"] = url_for(location) if location
-      super
-    end
-
-    def _normalize_options(options)
-      super
-    end
-
-    def _set_rendered_content_type(format)
-      if format && !response.media_type
-        response.content_type = format.to_s
-      end
     end
 
     # This is similar to an initializer for ActionController in the Rails engine:
