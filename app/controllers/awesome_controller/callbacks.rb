@@ -34,6 +34,11 @@ module AwesomeController
         set_callback(:process_action, :before, method_name, normalized_options)
       end
 
+      def after_action(method_name, **options)
+        normalized_options = normalize_options(options)
+        set_callback(:process_action, :after, method_name, normalized_options)
+      end
+
       private
 
       # ActiveSupport::Callbacks doesn't know about :only or :except. It knows about :if, and :unless,
