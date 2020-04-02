@@ -9,6 +9,7 @@ RSpec.describe "Posts API (Custom Controller)", type: :request do
 
       aggregate_failures do
         expect(response).to have_http_status(200)
+        expect(response.content_type).to match("application/json")
         expect(response.body).to match(post.title)
         expect(response.body).to match(post.content)
       end
@@ -23,6 +24,7 @@ RSpec.describe "Posts API (Custom Controller)", type: :request do
 
       aggregate_failures do
         expect(response).to have_http_status(200)
+        expect(response.content_type).to match("application/json")
         expect(response.headers.keys).to_not eq(nil)
         expect(response.body).to eq({ post: post }.to_json)
       end
@@ -41,6 +43,7 @@ RSpec.describe "Posts API (Custom Controller)", type: :request do
 
       aggregate_failures do
         expect(response).to have_http_status(201)
+        expect(response.content_type).to match("application/json")
         expect(response.body).to match(title)
         expect(response.body).to match(content)
       end

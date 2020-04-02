@@ -4,11 +4,12 @@ RSpec.describe "Posts API (Rails Controller)", type: :request do
 describe "GET /api/other_posts/1" do
   let(:post) { FactoryBot.create(:post) }
 
-  it 'returns the details of a post' do
+  pending 'returns the details of a post' do
     get api_other_post_path(post)
 
     aggregate_failures do
       expect(response).to have_http_status(200)
+      expect(response.content_type).to match("application/json")
       expect(response.headers.keys).to_not eq(nil)
       expect(response.body).to eq({ post: post }.to_json)
     end
@@ -23,7 +24,7 @@ end
       { post: { title: title, content: content, author_id: author.id  } }
     end
 
-    it "returns the newly created post" do
+    pending "returns the newly created post" do
       post "/api/other_posts", params: post_params
       expected_post = Post.first
 
@@ -43,6 +44,7 @@ end
 
       aggregate_failures do
         expect(response).to have_http_status(201)
+        expect(response.content_type).to match("application/json")
         expect(response.headers.keys).to include(*header_keys)
         expect(body_details).to eq(expected_body)
       end
