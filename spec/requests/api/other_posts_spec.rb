@@ -4,7 +4,7 @@ RSpec.describe "Posts API (Rails Controller)", type: :request do
 describe "GET /api/other_posts/1" do
   let(:post) { FactoryBot.create(:post) }
 
-  pending 'returns the details of a post' do
+  it 'returns the details of a post' do
     get api_other_post_path(post)
 
     aggregate_failures do
@@ -24,7 +24,7 @@ end
       { post: { title: title, content: content, author_id: author.id  } }
     end
 
-    pending "returns the newly created post" do
+    it "returns the newly created post" do
       post "/api/other_posts", params: post_params
       expected_post = Post.first
 

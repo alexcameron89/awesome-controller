@@ -19,6 +19,7 @@ class AwesomeController::Api < AwesomeController::BasestOfBase
     #  actionpack/lib/action_controller/metal/rendering.rb:118 for setting the status
     @response.status = status if status
 
+    @response.content_type = "application/json"
     self.response_body = json.to_json
   end
 end
