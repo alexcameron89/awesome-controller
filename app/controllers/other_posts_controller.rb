@@ -1,4 +1,4 @@
-class OtherPostsController < AwesomeController::Base
+class OtherPostsController < AwesomeApplicationController
   before_action :set_post, only: [:show]
 
   def index

@@ -4,6 +4,7 @@ class AwesomeController::Base < AwesomeController::BasestOfBase
   include AwesomeController::Callbacks
   include AwesomeController::Params
   include AwesomeController::ImplicitRendering
+  include ActionView::Layouts
   include ActionView::ViewPaths
   include AwesomeController::UrlFor
   include AwesomeController::Redirecting

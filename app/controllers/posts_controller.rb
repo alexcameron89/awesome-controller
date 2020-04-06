@@ -1,4 +1,4 @@
-class PostsController < ActionController::Base
+class PostsController < ApplicationController
   before_action :set_post, only: [:show]
 
   def index
