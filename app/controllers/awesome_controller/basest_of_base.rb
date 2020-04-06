@@ -1,4 +1,5 @@
 class AwesomeController::BasestOfBase
+  include AwesomeController::BasicRendering
 
   # NoMethodError:
   #  undefined method `binary_params_for?' for Api::OtherPostsController:Class
