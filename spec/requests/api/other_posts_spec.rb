@@ -19,9 +19,8 @@ end
   describe "POST /api/other_posts" do
     let(:title) { "Hello again!" }
     let(:content) { "It's good to see you!" }
-    let(:author) { FactoryBot.create(:author) }
     let(:post_params) do
-      { post: { title: title, content: content, author_id: author.id  } }
+      { post: { title: title, content: content } }
     end
 
     it "returns the newly created post" do
@@ -33,7 +32,6 @@ end
         "post" =>  {
           "id" => expected_post.id,
           "title" => title,
-          "author_id" => author.id,
           "content" => content,
           "created_at" => expected_post.created_at.iso8601,
           "updated_at" => expected_post.updated_at.iso8601

@@ -14,6 +14,6 @@ class Api::OtherPostsController < AwesomeController::Api
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :author_id)
+    params.require(:post).permit(:title, :content)
   end
 end
