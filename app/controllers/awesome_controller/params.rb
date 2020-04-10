@@ -12,17 +12,13 @@ module AwesomeController
       end
 
       def [](key)
-        attribute = @params[key]
-        attribute.kind_of?(Hash) ? Parameters.new(attribute) : attribute
+        @params[key]
       end
 
       def require(attribute)
-        required_params = self[attribute]
-        if required_params.present?
-          required_params
-        else
-          raise ParameterMissingError.new(attribute)
-        end
+        value = @params.fetch(attribute)
+
+        value.kind_of?(Hash) ? Parameters.new(value) : value
       end
 
       def permit(*attributes)
