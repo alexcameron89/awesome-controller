@@ -145,12 +145,4 @@ class AwesomeController::BasestOfBase
 
     @performed = true
   end
-
-  def _normalize_args(action = nil, options = {})
-    options
-  end
-
-  def _normalize_options(options)
-    options
-  end
 end

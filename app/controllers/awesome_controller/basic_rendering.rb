@@ -27,5 +27,9 @@ module AwesomeController
     # By default, it should be nil
     def rendered_format
     end
+
+    def _normalize_options(options)
+      options
+    end
   end
 end
