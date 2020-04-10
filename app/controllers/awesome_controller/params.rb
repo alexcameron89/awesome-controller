@@ -16,9 +16,7 @@ module AwesomeController
       end
 
       def require(attribute)
-        value = @params.fetch(attribute)
-
-        value.kind_of?(Hash) ? Parameters.new(value) : value
+        value = Parameters.new(@params.fetch(attribute))
       end
 
       def permit(*attributes)
