@@ -18,11 +18,11 @@ module AwesomeController
     # - `run_callbacks` - This is where the callback methods actually get called.
 
     included do
-      define_callbacks :process_action
+      define_callbacks :controller_callbacks
     end
 
     def process(*)
-      run_callbacks(:process_action) do
+      run_callbacks(:controller_callbacks) do
         super
       end
     end
@@ -31,12 +31,12 @@ module AwesomeController
 
       def before_action(method_name, **options)
         normalized_options = normalize_options(options)
-        set_callback(:process_action, :before, method_name, normalized_options)
+        set_callback(:controller_callbacks, :before, method_name, normalized_options)
       end
 
       def after_action(method_name, **options)
         normalized_options = normalize_options(options)
-        set_callback(:process_action, :after, method_name, normalized_options)
+        set_callback(:controller_callbacks, :after, method_name, normalized_options)
       end
 
       private
