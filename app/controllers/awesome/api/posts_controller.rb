@@ -1,4 +1,4 @@
-class Api::OtherPostsController < AwesomeController::Api
+class Awesome::Api::PostsController < AwesomeController::Api
   def show
     render json: { post: Post.find(params[:id]) }
   end

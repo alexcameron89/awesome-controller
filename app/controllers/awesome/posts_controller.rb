@@ -1,4 +1,4 @@
-class OtherPostsController < AwesomeApplicationController
+class Awesome::PostsController < Awesome::ApplicationController
   before_action :set_post, only: [:show]
 
   def index
@@ -17,7 +17,7 @@ class OtherPostsController < AwesomeApplicationController
 
     @post.save
 
-    redirect_to other_post_path(@post.id), notice: 'Congratulations on your successful post.'
+    redirect_to awesome_post_path(@post.id), notice: 'Congratulations on your successful post.'
   end
 
   private

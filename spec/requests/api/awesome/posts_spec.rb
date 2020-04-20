@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "Posts API (Rails Controller)", type: :request do
-describe "GET /api/other_posts/1" do
+RSpec.describe "Posts API (Awesome Controller)", type: :request do
+describe "GET /awesome/api/posts/1" do
   let(:post) { FactoryBot.create(:post) }
 
   it 'returns the details of a post' do
-    get api_other_post_path(post)
+    get "/awesome/api/posts/#{ post.id }"
 
     aggregate_failures do
       expect(response).to have_http_status(200)
@@ -16,7 +16,7 @@ describe "GET /api/other_posts/1" do
   end
 end
 
-  describe "POST /api/other_posts" do
+  describe "POST /awesome/api/posts" do
     let(:title) { "Hello again!" }
     let(:content) { "It's good to see you!" }
     let(:post_params) do
@@ -24,7 +24,7 @@ end
     end
 
     it "returns the newly created post" do
-      post "/api/other_posts", params: post_params
+      post "/awesome/api/posts", params: post_params
       expected_post = Post.first
 
       header_keys = ["ETag", "Cache-Control", "X-Request-Id", "X-Runtime", "Content-Length"]
