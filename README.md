@@ -1,24 +1,9 @@
-# README
+# AwesomeController - A Minimal Rebuild of ActionController
+## Purpose of AwesomeController
+AwesomeController was built to understand and simplify the concepts of ActionController and the functionality it provides. It started by taking a simple example Ruby on Rails app and removing the inheritance of ActionController from the app's controllers. From there, everything was built by following the trail of failures and referencing the real code of Action Controller to understand what it is doing.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Concepts
+### Dispatching
+### Base and Api
+### Using Modules
+##
