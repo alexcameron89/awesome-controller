@@ -6,4 +6,12 @@ AwesomeController was built to understand and simplify the concepts of ActionCon
 ### Dispatching
 ### Base and Api
 ### Using Modules
-##
+
+## Modules Included in AwesomeController
+### Callbacks
+### Params
+### ImplicitRendering
+### UrlFor
+### Redirecting
+### Flash
+### Rendering
