@@ -2,6 +2,11 @@
 ## Purpose of AwesomeController
 AwesomeController was built to understand and simplify the concepts of ActionController and the functionality it provides. It started by taking a simple example Ruby on Rails app and removing the inheritance of ActionController from the app's controllers. From there, everything was built by following the trail of failures and referencing the real code of Action Controller to understand what it is doing.
 
+## How to Use
+In order to run the code in this repo, clone the repository and run `bin/setup`. After a successful setup, you can use the tests to play with the code by dropping a binding.pry in the code you want to peruse and running the tests.
+
+**If you have any issues getting the code running, please open an issue with an example of your error.**
+
 ## Code Structure of AwesomeController
 
 The code for **AwesomeController** lives in `/app/controllers/awesome_controller`, and the controllers inheriting from it live in `/app/controllers/awesome`.
