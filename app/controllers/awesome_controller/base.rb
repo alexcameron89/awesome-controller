@@ -2,6 +2,7 @@ require "action_view"
 
 module AwesomeController
   class Base < AwesomeController::SuperBase
+    include AwesomeController::Rendering
     include AwesomeController::Callbacks
     include AwesomeController::Params
     include AwesomeController::ImplicitRendering
@@ -10,7 +11,6 @@ module AwesomeController
     include AwesomeController::UrlFor
     include AwesomeController::Redirecting
     include AwesomeController::Flash
-    include AwesomeController::Rendering
 
     ActiveSupport.run_load_hooks(:awesome_controller, self)
   end
