@@ -1,7 +1,6 @@
 module AwesomeController
   class SuperBase
     extend AwesomeController::Misc
-    include AwesomeController::Rendering
 
     # This is the method called by the router to initiate the controller
     # processing.
